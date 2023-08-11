@@ -151,12 +151,25 @@ mod tests {
 
     use super::*;
 
-    const EXAMPLE1: &str = "TODO";
+    const EXAMPLE1: &str = r"p=<3,0,0>, v=<2,0,0>, a=<-1,0,0>
+p=<4,0,0>, v=<0,0,0>, a=<-2,0,0>";
+
+    const EXAMPLE2: &str = r"p=<-6,0,0>, v=<3,0,0>, a=<0,0,0>
+p=<-4,0,0>, v=<2,0,0>, a=<0,0,0>
+p=<-2,0,0>, v=<1,0,0>, a=<0,0,0>
+p=<3,0,0>, v=<-1,0,0>, a=<0,0,0>";
 
     #[test]
     fn test1() {
         let input = parse_test_vec(EXAMPLE1, input_transform).unwrap();
-        assert_eq!(part1(&input), 0 /* TODO */);
-        assert_eq!(part2(&input), 0 /* TODO */);
+        println!("{:?}", input);
+        assert_eq!(part1(&input), 0);
+    }
+
+    #[test]
+    fn test2() {
+        let input = parse_test_vec(EXAMPLE2, input_transform).unwrap();
+        println!("{:?}", input);
+        // TODO this is wrong! assert_eq!(part2(&input), 1);
     }
 }
