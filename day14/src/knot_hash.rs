@@ -9,7 +9,7 @@ pub fn knot_hash(input: &str) -> Vec<u8> {
         .as_bytes()
         .iter()
         .map(|b| *b as usize)
-        .chain([17, 31, 73, 47, 23].into_iter())
+        .chain([17, 31, 73, 47, 23])
         .collect::<Vec<_>>();
 
     let mut queue = (0..=255).collect::<VecDeque<u8>>();
@@ -32,12 +32,6 @@ pub fn knot_hash(input: &str) -> Vec<u8> {
     hash
 }
 
-pub fn knot_hash_str(string: &str) -> String {
-    let hash = knot_hash(string);
-
-    hash.iter().map(|b| format!("{:02x}", b)).join("")
-}
-
 fn twist(twists: &[usize], queue: &mut VecDeque<u8>, skip_size: &mut usize, rotated: &mut usize) {
     for twist in twists.iter() {
         let mut new_queue = queue.split_off(*twist);
@@ -52,6 +46,12 @@ fn twist(twists: &[usize], queue: &mut VecDeque<u8>, skip_size: &mut usize, rota
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    pub fn knot_hash_str(string: &str) -> String {
+        let hash = knot_hash(string);
+
+        hash.iter().map(|b| format!("{:02x}", b)).join("")
+    }
 
     #[test]
     fn test() {

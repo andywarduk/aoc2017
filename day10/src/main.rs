@@ -37,7 +37,7 @@ fn part2(input: &str, elem_max: u8) -> String {
         .as_bytes()
         .iter()
         .map(|b| *b as usize)
-        .chain([17, 31, 73, 47, 23].into_iter())
+        .chain([17, 31, 73, 47, 23])
         .collect::<Vec<_>>();
 
     let mut queue = (0..=elem_max).collect::<VecDeque<u8>>();

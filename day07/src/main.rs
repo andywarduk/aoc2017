@@ -188,7 +188,7 @@ fn input_transform(line: String) -> Program {
 
     let children = match iter.next() {
         None => vec![],
-        Some(s) if s == "->" => iter.map(|c| c.trim_end_matches(',').to_string()).collect(),
+        Some("->") => iter.map(|c| c.trim_end_matches(',').to_string()).collect(),
         _ => panic!("Invalid children spec"),
     };
 
