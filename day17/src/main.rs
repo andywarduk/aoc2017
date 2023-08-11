@@ -59,6 +59,6 @@ mod tests {
     #[test]
     fn test1() {
         assert_eq!(part1(3), 638);
-        assert_eq!(part2(0), 0 /* TODO */);
+        assert_eq!(part2(0), 1);
     }
 }
